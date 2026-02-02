@@ -72,10 +72,11 @@ export default function AddReadingScreen() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 0}
       className="flex-1 bg-white"
     >
       <ScrollView
-        contentContainerStyle={contentPadding}
+        contentContainerStyle={[contentPadding, { paddingBottom: 100 }]}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
       >

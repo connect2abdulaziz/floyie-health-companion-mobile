@@ -195,6 +195,13 @@ export default function DashboardScreen() {
     }
   }, [user, fetchRoleAndData]);
 
+  // Redirect doctor to doctor dashboard
+  useEffect(() => {
+    if (role === "doctor") {
+      router.replace("/(doctor)" as any);
+    }
+  }, [role, router]);
+
   const onRefresh = useCallback(() => {
     if (role === "caregiver" || role === "doctor") return;
     setRefreshing(true);
@@ -216,19 +223,30 @@ export default function DashboardScreen() {
     );
   }
 
-  // Role stub: caregiver or doctor
-  if (role === "caregiver" || role === "doctor") {
-    const label = role === "caregiver" ? "Caregiver" : "Doctor";
+  // Show loading while doctor redirect is happening
+  if (role === "doctor") {
+    return (
+      <View
+        className="flex-1 items-center justify-center bg-white"
+        style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}
+      >
+        <ActivityIndicator size="large" color="#9333ea" />
+      </View>
+    );
+  }
+
+  // Role stub: caregiver
+  if (role === "caregiver") {
     return (
       <View
         className="flex-1 items-center justify-center bg-white px-6"
         style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}
       >
         <Text className="text-center text-xl font-semibold text-gray-900">
-          {label} Dashboard
+          Caregiver Dashboard
         </Text>
         <Text className="mt-2 text-center text-gray-500">
-          Coming soon. You're signed in as a {label.toLowerCase()}.
+          Coming soon. You're signed in as a caregiver.
         </Text>
       </View>
     );

@@ -20,15 +20,16 @@ export default function TabsLayout() {
           ),
         }}
       />
-      {/* <Tabs.Screen
+      <Tabs.Screen
         name="blood-pressure"
         options={{
-          title: "Blood Pressure",
+          title: "BP",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="heart" size={size} color={color} />
           ),
         }}
-      /> */}
+      />
       <Tabs.Screen
         name="insights"
         options={{

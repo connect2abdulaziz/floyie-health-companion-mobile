@@ -187,6 +187,28 @@ export default function ProfileScreen() {
           </CardContent>
         </Card>
 
+        {/* Care Team */}
+        <Card className="mb-4 border-gray-200">
+          <CardContent className="p-0">
+            <TouchableOpacity
+              onPress={() => router.push("/profile/care-team")}
+              className="flex-row items-center justify-between px-4 py-4"
+              activeOpacity={0.9}
+            >
+              <View className="flex-row items-center gap-3">
+                <View className="h-10 w-10 items-center justify-center rounded-full bg-green-500/10">
+                  <Ionicons name="people" size={22} color="#16a34a" />
+                </View>
+                <View>
+                  <Text className="font-medium text-gray-900">Care Team</Text>
+                  <Text className="text-sm text-gray-500">Manage doctors and caregivers</Text>
+                </View>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color="#9ca3af" />
+            </TouchableOpacity>
+          </CardContent>
+        </Card>
+
         {/* Settings */}
         <Card className="mb-4 border-gray-200">
           <CardContent className="p-0">
